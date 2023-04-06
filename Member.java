@@ -1,3 +1,4 @@
-abstract class Member {
-    int MemberID;
+abstract class Member extends Person{
+    protected int MemberID;
+    protected float Balance;
 }
