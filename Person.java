@@ -19,7 +19,7 @@ abstract class Person {
     public void setAddress(String address) {
         this.address = address;
     }
-    public void setDate(Date date) {
+    public void setDateOfBirth(Date date) {
         this.dob = date;
     }
     
@@ -27,7 +27,7 @@ abstract class Person {
         this.email = email;
     }
 
-    public void setSSN(SSN) {
+    public void setSSN(int ssn) {
         this.ssn = ssn;
     }
 
