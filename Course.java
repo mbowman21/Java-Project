@@ -1,18 +1,15 @@
 import java.util.ArrayList;
 import java.util.List;
 
-//idk what this is, vs code just automatically imported it
-import javax.swing.plaf.InputMapUIResource;
+public class Course {
+    public String courseName;
+    public String courseCode;
 
-abstract class Course {
-    protected String courseName;
-    protected String courseCode;
-
-    protected int studentCount;
-    protected int courseCredit;
-    protected Professor professor;
-    protected ArrayList<Item> requiredMaterials;
-    protected ArrayList<Student> roster;
+    public int studentCount;
+    public int courseCredit;
+    public Professor professor;
+    public ArrayList<Item> requiredMaterials;
+    public ArrayList<Student> roster;
 
     // default constructor
     public Course(String courseName, String courseCode, Professor courseProfessor, ArrayList<Item> requiredMaterials, int creditAmount, ArrayList<Student> roster){
@@ -73,7 +70,7 @@ abstract class Course {
     }
 
     // professor functions
-    public void setProffessor(Professor professor){
+    public void setProfessor(Professor professor){
         this.professor = professor;
     }
 
@@ -83,6 +80,16 @@ abstract class Course {
 
     // student functions
     public Student getStudent(int studentId){
+        Student tempStudent;
+
+        for (int i = 0; i < this.roster.size(); i++){
+           
+            if (this.roster.get(i).studentId == studentId){
+                tempStudent = this.roster.get(i);
+
+            }       
+        }
         
+        return tempStudent;
     }
 }
