@@ -1,6 +1,7 @@
 import java.util.ArrayList;
 import java.util.List;
 
+//idk what this is, vs code just automatically imported it
 import javax.swing.plaf.InputMapUIResource;
 
 abstract class Course {
