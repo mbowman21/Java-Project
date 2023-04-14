@@ -1,0 +1,40 @@
+import java.util.ArrayList;
+import java.util.Date;
+
+public class Professor extends Employee{
+    private ArrayList<Course> courses;
+    private ArrayList<Student> students;
+
+    public Professor(String name, Date dob, String email, int employeeId){
+        this.setName(name);
+        this.setDateOfBirth(dob);
+        this.setEmail(email);
+        this.setEmployeeId(employeeId);
+        this.courses = new ArrayList<>();
+        this.students = new ArrayList<>();
+    }
+
+    public void addCourse(Course course){
+        this.courses.add(course);
+    }
+
+    public void removeCourse(Course course){
+        this.courses.remove(course);
+    }
+
+    public ArrayList<Course> getCourses(){
+        return this.courses;
+    }
+
+    public void addStudent(Student student){
+        this.students.add(student);
+    }
+
+    public void removeStudent(Student student){
+        this.students.remove(student);
+    }
+
+    public ArrayList<Student> getStudents(){
+        return this.students;
+    }
+}
