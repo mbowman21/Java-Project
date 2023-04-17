@@ -7,8 +7,9 @@ abstract class Person {
     protected String email;
     protected long ssn;
 
+    //@Override
     public String toString(){
-
+        return "Name: " + this.name + "\nAddress: " + this.address + "\nDate of Birth: " + this.dob.toString() + "\n Email: " + this.email + "\nSSN: " + String.valueOf(this.ssn);
     }
 
     public void setName(String name) {
