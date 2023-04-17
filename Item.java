@@ -6,7 +6,7 @@ abstract class Item {
     protected String author;
     protected String publisher;
     protected String status;
-    protected int itemID;
+    protected long itemID;
     protected Date checkoutDate;
 
     public String getSection() {
@@ -49,11 +49,11 @@ abstract class Item {
         this.publisher = publisher;
     }
 
-    public int getItemID() {
+    public long getItemID() {
         return this.itemID;
     }
 
-    public void setItemID(int itemID){
+    public void setItemID(long itemID){
         this.itemID = itemID;
     }
 

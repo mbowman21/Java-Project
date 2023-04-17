@@ -1,5 +1,5 @@
 public class Journal extends Item{
-    Journal(String section, String title, String author, String publisher, int itemID){
+    Journal(String section, String title, String author, String publisher, long itemID){
         setSection(section);
         setTitle(title);
         setAuthor(author);
