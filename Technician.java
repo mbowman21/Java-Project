@@ -28,7 +28,7 @@ public class Technician extends Employee {
     }
 
     // Constructor with name, dob, email, ssn, employeeId, startDate, and salary parameters
-    public Technician(String name, Date dob, String email, int ssn, int employeeId, Date startDate, float salary) {
+    public Technician(String name, Date dob, String email, long ssn, int employeeId, Date startDate, float salary) {
         this.name=name;
         this.dob=dob;
         this.email=email;
@@ -39,7 +39,7 @@ public class Technician extends Employee {
     }
 
     // Constructor with name, address, dob, email, ssn, employeeId, startDate, and salary parameters
-    public Technician(String name, String address, Date dob, String email, int ssn, int employeeId, Date startDate, float salary) {
+    public Technician(String name, String address, Date dob, String email, long ssn, int employeeId, Date startDate, float salary) {
         this.name=name;
         this.address=address;
         this.dob=dob;

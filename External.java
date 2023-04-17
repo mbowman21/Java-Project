@@ -2,7 +2,7 @@ import java.util.Date;
 
 public class External extends Member{
     //constructor
-    External(String name, String email, String address, Date dob, int ssn, int memberId) {
+    External(String name, String email, String address, Date dob, long ssn, int memberId) {
         setName(name);
         setEmail(email);
         setAddress(address);

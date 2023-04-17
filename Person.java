@@ -5,7 +5,7 @@ abstract class Person {
     protected String address;
     protected Date dob;
     protected String email;
-    protected int ssn;
+    protected long ssn;
 
     public String toString(){
 
@@ -27,7 +27,7 @@ abstract class Person {
         this.email = email;
     }
 
-    public void setSSN(int ssn) {
+    public void setSSN(long ssn) {
         this.ssn = ssn;
     }
 
@@ -47,11 +47,7 @@ abstract class Person {
         return this.email;
     }
 
-    public int getSSN() {
+    public long getSSN() {
         return this.ssn;
-    }
-
-    public String getSSN(){
-        return Integer.toString(this.ssn);
     }
 }
