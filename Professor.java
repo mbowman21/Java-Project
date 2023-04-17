@@ -1,15 +1,18 @@
 import java.util.ArrayList;
 import java.util.Date;
 
-public class Professor extends Employee{
+public class Professor extends Member{
     private ArrayList<Course> courses;
     private ArrayList<Student> students;
 
-    public Professor(String name, Date dob, String email, int employeeId){
+    public Professor(String name, Date dob, String email, int memberId, String address, long ssn){
         this.setName(name);
         this.setDateOfBirth(dob);
         this.setEmail(email);
-        this.setEmployeeId(employeeId);
+        this.setMemberId(memberId);
+        this.setAddress(address);
+        this.setSSN(ssn);
+        this.setBalance(0.0f);
         this.courses = new ArrayList<>();
         this.students = new ArrayList<>();
     }
