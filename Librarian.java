@@ -1,6 +1,6 @@
-import java.util.Date;
+import java.time.LocalDate;
 public class Librarian extends Employee {
-    public Librarian(String name, String address, Date dob, String email, long ssn, int employeeId, Date startDate, float salary) {
+    public Librarian(String name, String address, LocalDate dob, String email, long ssn, int employeeId, LocalDate startDate, float salary) {
         setName(name);
         setAddress(address);
         setDateOfBirth(startDate);

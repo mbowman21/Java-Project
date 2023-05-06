@@ -1,34 +1,15 @@
 import javax.swing.*;
 import java.awt.event.*;
-import java.util.ArrayList;
 
 
 public class StartMenu {
-    // items
-    ArrayList<Book> bookList = new ArrayList<Book>();
-    ArrayList<Newspaper> newspaperList = new ArrayList<Newspaper>();
-    ArrayList<Journal> journalList = new ArrayList<Journal>();
-    ArrayList<Dvd> dvdList = new ArrayList<Dvd>();
-    
-    // member types
-    ArrayList<Professor> professorList = new ArrayList<Professor>();
-    ArrayList<Student> studentList = new ArrayList<Student>();
-    ArrayList<External> externalList = new ArrayList<External>();
-    
-    // employee types
-    ArrayList<Librarian> librarianList = new ArrayList<Librarian>();
-    ArrayList<Technician> technicianList = new ArrayList<Technician>();
-    
-    // courses
-    ArrayList<Course> courseList = new ArrayList<Course>();
-
     public static void changeToStartMenu(JFrame oldFrame) {
         oldFrame.setVisible(false);
         startMenu();
     }
 
     public static void createButton (JButton button, JFrame frame, int yInc) {
-        button.setBounds(50,yInc,150,30);  
+        button.setBounds(50,yInc,200,30);  
         frame.add(button);
     }
 
@@ -61,7 +42,7 @@ public class StartMenu {
             }   
         });
     
-        f.setSize(300,750);  
+        f.setSize(350,750);  
         f.setLayout(null);  
         f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     }

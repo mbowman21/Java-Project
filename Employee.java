@@ -1,7 +1,7 @@
-import java.util.Date;
+import java.time.LocalDate;
 abstract class Employee extends Person{
     protected int employeeId;
-    protected Date startDate;
+    protected LocalDate startDate;
     protected float salary;
 
     public void setEmployeeId(int employeeId){
@@ -12,11 +12,11 @@ abstract class Employee extends Person{
         return this.employeeId;
     }
 
-    public void setStartDate(Date startDate){
+    public void setStartDate(LocalDate startDate){
         this.startDate = startDate;
     }
     
-    public Date getStartDate() {
+    public LocalDate getStartDate() {
         return this.startDate;
     }
     

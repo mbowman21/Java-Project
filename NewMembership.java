@@ -1,6 +1,6 @@
 import javax.swing.*;
-import java.util.ArrayList;
 import java.awt.event.*;
+import java.time.*;
 
 public class NewMembership {
     public static void createTextField (JTextField textField, JFrame frame, int y) {
@@ -26,7 +26,7 @@ public class NewMembership {
         JLabel emailLabel = new JLabel("Email:");
         JLabel idLabel = new JLabel("Id:");
         JLabel addressLabel = new JLabel("Address:");
-        JLabel ssnLabel = new JLabel("SSN:");
+        JLabel ssnLabel = new JLabel("SSN: (XXXXXXXXX)");
 
         JTextField nameInput = new JTextField();
         JTextField emailInput = new JTextField();
@@ -34,15 +34,15 @@ public class NewMembership {
         JTextField addressInput = new JTextField();
         JTextField ssnInput = new JTextField();
 
-        JLabel monthLabel = new JLabel("Month:");
+        JLabel monthLabel = new JLabel("Birth Month:");
         String months[] = {"1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12"};
         JComboBox<String> monthInput = new JComboBox<>(months);
 
-        JLabel dayLabel = new JLabel("Day:");
+        JLabel dayLabel = new JLabel("Birth Day:");
         String days[] = {"1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31"};
         JComboBox<String> dayInput = new JComboBox<>(days);
 
-        JLabel yearLabel = new JLabel("Year:");
+        JLabel yearLabel = new JLabel("Birth Year: (YYYY)");
         JTextField yearInput = new JTextField();
 
         JLabel typeLabel = new JLabel("Type of Member:");
@@ -101,21 +101,62 @@ public class NewMembership {
         f.add(submit);
 
         submit.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-                String name = nameInput.getText();
-                String email = emailInput.getText();
-                String id = idInput.getText();
-                String address = addressInput.getText();
-                String ssn = ssnInput.getText();
-                String month = monthInput.getItemAt(monthInput.getSelectedIndex());
-                String day = dayInput.getItemAt(dayInput.getSelectedIndex());
-                String year = yearInput.getText();
-                if (typeInput.getItemAt(typeInput.getSelectedIndex()) == "Student") {
+            public void actionPerformed(ActionEvent event) {
+                try {
+                    String name = nameInput.getText();
+                    String email = emailInput.getText();
+                    int id = Integer.parseInt(idInput.getText());
+                    if (id < 0)
+                        throw new Exception();
+                    String address = addressInput.getText();
+                    long ssn = Long.parseLong(ssnInput.getText());
+                    if (ssn < 0 || ssn > 10000000000L)
+                        throw new Exception();
+                    int month = Integer.parseInt(monthInput.getItemAt(monthInput.getSelectedIndex()));
+                    int day = Integer.parseInt(dayInput.getItemAt(dayInput.getSelectedIndex()));
+                    int year = Integer.parseInt(yearInput.getText());
+                    if (year < 1900 || year > Year.now().getValue() )
+                        throw new Exception();
+                    LocalDate dob = LocalDate.of(year, month, day);
 
-                } else if (typeInput.getItemAt(typeInput.getSelectedIndex()) == "Professor") {
+                    if (name.isEmpty() || email.isEmpty() || address.isEmpty())
+                        throw new Exception();
 
-                } else if (typeInput.getItemAt(typeInput.getSelectedIndex()) == "External") {
+                    if (typeInput.getItemAt(typeInput.getSelectedIndex()) == "Student") {
+                        for (Student student : Main.studentList) {
+                            if (student.MemberID == id)
+                                throw new Exception();
+                        }
+                        Student newStudent = new Student(name, dob, email, id, address, ssn);
+                        Main.studentList.add(newStudent);
+                        System.out.println(Main.studentList);
+                    }
+                    
+                    else if (typeInput.getItemAt(typeInput.getSelectedIndex()) == "Professor") {
+                        for (Professor professor : Main.professorList) {
+                            if (professor.MemberID == id)
+                                throw new Exception();
+                        }
+                        Professor newProfessor = new Professor(name, dob, email, id, address, ssn);
+                        Main.professorList.add(newProfessor);
+                        System.out.println(Main.professorList);
+                    }
+                    
+                    else if (typeInput.getItemAt(typeInput.getSelectedIndex()) == "External") {
+                        for (External external : Main.externalList) {
+                            if (external.MemberID == id)
+                                throw new Exception();
+                        }
+                        External newExternal = new External(name, dob, email, id, address, ssn);
+                        Main.externalList.add(newExternal);
+                        System.out.println(Main.externalList);
+                    }
 
+                    else
+                        throw new Exception();
+                } catch(Exception e) {
+                    System.out.println(e);
+                    JOptionPane.showMessageDialog(f,"Error! One of the items you inputted was not formatted correctly or that id is already in use. Please try again.");
                 }
             }
         });
@@ -124,16 +165,5 @@ public class NewMembership {
         f.setSize(300,750);  
         f.setLayout(null);  
         f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-    }
-
-    public static void createNewStudent(ArrayList<Student> studentList){
-
-    }
-
-    public static void createNewProfessor(ArrayList<Professor> professorList){
-        
-    }
-    public static void createNewExternal(ArrayList<External> externalList){
-        
     }
 }

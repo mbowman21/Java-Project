@@ -1,11 +1,11 @@
 import java.util.ArrayList;
-import java.util.Date;
+import java.time.LocalDate;
 
 public class Professor extends Member{
     private ArrayList<Course> courses;
     private ArrayList<Student> students;
 
-    public Professor(String name, Date dob, String email, int memberId, String address, long ssn){
+    public Professor(String name, LocalDate dob, String email, int memberId, String address, long ssn){
         this.setName(name);
         this.setDateOfBirth(dob);
         this.setEmail(email);

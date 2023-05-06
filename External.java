@@ -1,12 +1,12 @@
-import java.util.Date;
+import java.time.LocalDate;
 
 public class External extends Member{
     //constructor
-    External(String name, String email, String address, Date dob, long ssn, int memberId) {
+    External(String name, LocalDate DOB, String email, int memberId, String address, long ssn) {
         setName(name);
         setEmail(email);
         setAddress(address);
-        setDateOfBirth(dob);
+        setDateOfBirth(DOB);
         setSSN(ssn);
         setMemberId(memberId);
         setBalance(0.0f);

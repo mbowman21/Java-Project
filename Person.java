@@ -1,9 +1,9 @@
-import java.util.Date;
+import java.time.LocalDate;
 
 abstract class Person {
     protected String name;
     protected String address;
-    protected Date dob;
+    protected LocalDate dob;
     protected String email;
     protected long ssn;
 
@@ -20,7 +20,7 @@ abstract class Person {
     public void setAddress(String address) {
         this.address = address;
     }
-    public void setDateOfBirth(Date date) {
+    public void setDateOfBirth(LocalDate date) {
         this.dob = date;
     }
     
@@ -40,7 +40,7 @@ abstract class Person {
         return this.address;
     }
 
-    public Date getDate() {
+    public LocalDate getDate() {
         return this.dob;
     }
 

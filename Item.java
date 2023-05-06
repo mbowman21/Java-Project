@@ -1,4 +1,4 @@
-import java.util.Date;
+import java.time.LocalDate;
 
 abstract class Item {
     protected String section;
@@ -7,7 +7,7 @@ abstract class Item {
     protected String publisher;
     protected String status;
     protected long itemID;
-    protected Date checkoutDate;
+    protected LocalDate checkoutDate;
 
     public String getSection() {
         return this.section;
@@ -57,11 +57,11 @@ abstract class Item {
         this.itemID = itemID;
     }
 
-    public Date getCheckoutDate(){
+    public LocalDate getCheckoutDate(){
         return this.checkoutDate;
     }
 
-    public void setCheckoutDate(Date checkoutDate){
+    public void setCheckoutDate(LocalDate checkoutDate){
         this.checkoutDate = checkoutDate;
     }
 

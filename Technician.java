@@ -2,52 +2,22 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
-import java.util.Date;
+import java.time.LocalDate;
 
 public class Technician extends Employee {
     private List<Item> unshelvedItems;
     private String u="unshelved";//Stores the string object we will compare the status of the book to
 
-    // Constructor with name, employeeId, startDate, and salary parameters
-    public Technician(String name, int employeeId, Date startDate, float salary) {
-        this.name=name;
-        this.employeeId= employeeId;
-        this.startDate = startDate;
-        this.salary = salary;
-    }
-
-    // Constructor with name, address, dob, email, employeeId, startDate, and salary parameters
-    public Technician(String name, String address, Date dob, String email, int employeeId, Date startDate, float salary) {
-        this.name=name;
-        this.address=address;
-        this.dob=dob;
-        this.email=email;
-        this.employeeId=employeeId;
-        this.startDate = startDate;
-        this.salary = salary;
-    }
-
-    // Constructor with name, dob, email, ssn, employeeId, startDate, and salary parameters
-    public Technician(String name, Date dob, String email, long ssn, int employeeId, Date startDate, float salary) {
-        this.name=name;
-        this.dob=dob;
-        this.email=email;
-        this.ssn=ssn;
-        this.employeeId=employeeId;
-        this.startDate = startDate;
-        this.salary = salary;
-    }
-
     // Constructor with name, address, dob, email, ssn, employeeId, startDate, and salary parameters
-    public Technician(String name, String address, Date dob, String email, long ssn, int employeeId, Date startDate, float salary) {
-        this.name=name;
-        this.address=address;
-        this.dob=dob;
-        this.email=email;
-        this.ssn=ssn;
-        this.employeeId=employeeId;
-        this.startDate = startDate;
-        this.salary = salary;
+    public Technician(String name, String address, LocalDate dob, String email, long ssn, int employeeId, LocalDate startDate, float salary) {
+        setName(name);
+        setAddress(address);
+        setDateOfBirth(startDate);
+        setEmail(email);
+        setSSN(ssn);
+        setEmployeeId(employeeId);
+        setStartDate(dob);
+        setSalary(salary);
     }
 
     

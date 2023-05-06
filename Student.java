@@ -1,15 +1,15 @@
 import java.util.ArrayList;
-import java.util.Date;
+import java.time.LocalDate;
 
 public class Student extends Member{
     protected int studentId;
     protected ArrayList<Course> courses;
 
-    public Student(String name, Date DOB, String studentEmail, int studentId, String address, long ssn){
+    public Student(String name, LocalDate DOB, String studentEmail, int id, String address, long ssn){
         setName(name);
         setDateOfBirth(DOB);
         setEmail(studentEmail);
-        setStudentId(studentId);
+        setMemberId(id);
         setAddress(address);
         setSSN(ssn);
         setBalance(0.0f);
@@ -24,11 +24,11 @@ public class Student extends Member{
         courses.remove(course);
     }
 
-    public int getStudentId(){
-        return this.studentId;
-    }
+    // public int getStudentId(){
+    //     return this.studentId;
+    // }
 
-    public void setStudentId(int studentId){
-        this.studentId = studentId;
-    }
+    // public void setStudentId(int studentId){
+    //     this.studentId = studentId;
+    // }
 }
