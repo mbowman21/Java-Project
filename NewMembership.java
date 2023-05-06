@@ -13,15 +13,12 @@ public class NewMembership {
         frame.add(label);
     }
 
-    public static void createMenuButton(JFrame frame) {
-        JButton menuButton = new JButton("Menu");
-        menuButton.setBounds(0, 0, 75, 20);
-        frame.add(menuButton);
-    }
-
-    public static void changeToMembershipFrame(JFrame oldFrame){
+    public static void changeToNewMembership(JFrame oldFrame){
         oldFrame.setVisible(false);
-
+        newMembership();
+    }
+    
+    public static void newMembership() {
         JFrame f = new JFrame("New Membership Creation");
         f.setVisible(true);
 
@@ -55,7 +52,14 @@ public class NewMembership {
         JButton submit = new JButton("Submit");
 
 
-        createMenuButton(f);
+        JButton menuButton = new JButton("Menu");
+        menuButton.setBounds(0, 0, 75, 20);
+        f.add(menuButton);
+        menuButton.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e){
+                StartMenu.changeToStartMenu(f);
+            }   
+        });
 
         int yLabel = 30;
         int yInput = 50;
@@ -100,8 +104,10 @@ public class NewMembership {
         f.setLayout(null);  
         f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     }
-    
-    public static void createNewStudent(ArrayList<Student> studentList){}
+
+    public static void createNewStudent(ArrayList<Student> studentList){
+        
+    }
 
     public static void createNewProfessor(ArrayList<Professor> professorList){
         

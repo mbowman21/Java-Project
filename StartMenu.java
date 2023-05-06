@@ -22,6 +22,10 @@ public class StartMenu {
     // courses
     ArrayList<Course> courseList = new ArrayList<Course>();
 
+    public static void changeToStartMenu(JFrame oldFrame) {
+        oldFrame.setVisible(false);
+        startMenu();
+    }
 
     public static void createButton (JButton button, JFrame frame, int yInc) {
         button.setBounds(50,yInc,150,30);  
@@ -29,7 +33,9 @@ public class StartMenu {
     }
 
     public static void startMenu(){
-        JFrame f=new JFrame("Button Example");
+        JFrame f=new JFrame("Start Menu");
+        f.setVisible(true);
+
         JButton newMembershipButton=new JButton("New Membership");
         JButton newCollectionButton = new JButton("New Collection");
         JButton removeMembershipButton =new JButton("Remove Membership");
@@ -51,13 +57,12 @@ public class StartMenu {
 
         newMembershipButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e){  
-                NewMembership.changeToMembershipFrame(f);
+                NewMembership.changeToNewMembership(f);
             }   
         });
     
         f.setSize(300,750);  
         f.setLayout(null);  
-        f.setVisible(true);
         f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     }
 }
