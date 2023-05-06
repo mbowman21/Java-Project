@@ -28,26 +28,26 @@ public class NewMembership {
         JLabel addressLabel = new JLabel("Address:");
         JLabel ssnLabel = new JLabel("SSN:");
 
-        JTextField name = new JTextField();
-        JTextField email = new JTextField();
-        JTextField id = new JTextField();
-        JTextField address = new JTextField();
-        JTextField ssn = new JTextField();
+        JTextField nameInput = new JTextField();
+        JTextField emailInput = new JTextField();
+        JTextField idInput = new JTextField();
+        JTextField addressInput = new JTextField();
+        JTextField ssnInput = new JTextField();
 
         JLabel monthLabel = new JLabel("Month:");
         String months[] = {"1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12"};
-        JComboBox<String> month = new JComboBox<>(months);
+        JComboBox<String> monthInput = new JComboBox<>(months);
 
         JLabel dayLabel = new JLabel("Day:");
         String days[] = {"1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31"};
-        JComboBox<String> day = new JComboBox<>(days);
+        JComboBox<String> dayInput = new JComboBox<>(days);
 
         JLabel yearLabel = new JLabel("Year:");
-        JTextField year = new JTextField();
+        JTextField yearInput = new JTextField();
 
         JLabel typeLabel = new JLabel("Type of Member:");
         String types[] = {"Professor", "Student", "External"};
-        JComboBox<String> type = new JComboBox<>(types);
+        JComboBox<String> typeInput = new JComboBox<>(types);
 
         JButton submit = new JButton("Submit");
 
@@ -71,7 +71,7 @@ public class NewMembership {
             yLabel += yInc;
         }
 
-        JTextField textFields[] = {name, email, id, address, ssn};
+        JTextField textFields[] = {nameInput, emailInput, idInput, addressInput, ssnInput};
         for (JTextField textField : textFields) {
             createTextField(textField, f, yInput);
             yInput += yInc;
@@ -79,26 +79,47 @@ public class NewMembership {
 
         monthLabel.setBounds(50, 320, 150, 30);
         f.add(monthLabel);
-        month.setBounds(50, 350, 150, 30);
-        f.add(month);
+        monthInput.setBounds(50, 350, 150, 30);
+        f.add(monthInput);
 
         dayLabel.setBounds(50, 380, 150, 30);
         f.add(dayLabel);
-        day.setBounds(50, 410, 150, 30);
-        f.add(day);
+        dayInput.setBounds(50, 410, 150, 30);
+        f.add(dayInput);
 
         yearLabel.setBounds(50, 440, 150, 30);
         f.add(yearLabel);
-        year.setBounds(50, 470, 150, 30);
-        f.add(year);
+        yearInput.setBounds(50, 470, 150, 30);
+        f.add(yearInput);
 
         typeLabel.setBounds(50, 500, 150, 30);
         f.add(typeLabel);
-        type.setBounds(50, 530, 150, 30);
-        f.add(type);
+        typeInput.setBounds(50, 530, 150, 30);
+        f.add(typeInput);
 
         submit.setBounds(50, 590, 150, 30);
         f.add(submit);
+
+        submit.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                String name = nameInput.getText();
+                String email = emailInput.getText();
+                String id = idInput.getText();
+                String address = addressInput.getText();
+                String ssn = ssnInput.getText();
+                String month = monthInput.getItemAt(monthInput.getSelectedIndex());
+                String day = dayInput.getItemAt(dayInput.getSelectedIndex());
+                String year = yearInput.getText();
+                if (typeInput.getItemAt(typeInput.getSelectedIndex()) == "Student") {
+
+                } else if (typeInput.getItemAt(typeInput.getSelectedIndex()) == "Professor") {
+
+                } else if (typeInput.getItemAt(typeInput.getSelectedIndex()) == "External") {
+
+                }
+            }
+        });
+
 
         f.setSize(300,750);  
         f.setLayout(null);  
@@ -106,7 +127,7 @@ public class NewMembership {
     }
 
     public static void createNewStudent(ArrayList<Student> studentList){
-        
+
     }
 
     public static void createNewProfessor(ArrayList<Professor> professorList){
