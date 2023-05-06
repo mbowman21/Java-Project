@@ -6,6 +6,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "Start",
+            "request": "launch",
+            "mainClass": "Start",
+            "projectName": "Java-Project_3e05185f"
+        },
+        {
+            "type": "java",
             "name": "StartMenu",
             "request": "launch",
             "mainClass": "Pages.StartMenu",
