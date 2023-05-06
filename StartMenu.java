@@ -27,8 +27,8 @@ public class StartMenu {
         button.setBounds(50,yInc,150,30);  
         frame.add(button);
     }
-    
-    public static void main(String[] args) {
+
+    public static void startMenu(){
         JFrame f=new JFrame("Button Example");
         JButton newMembershipButton=new JButton("New Membership");
         JButton newCollectionButton = new JButton("New Collection");
@@ -40,22 +40,13 @@ public class StartMenu {
         JButton checkOverduesButton = new JButton("Check Overdues");
         JButton editInformationButton = new JButton("Edit Information");
 
-        ArrayList<JButton> buttons = new ArrayList<JButton>();
-        buttons.add(newMembershipButton);
-        buttons.add(newCollectionButton);
-        buttons.add(removeMembershipButton);
-        buttons.add(removeItemFromCollectionButton);
-        buttons.add(newEmployeeButton);
-        buttons.add(borrowItemButton);
-        buttons.add(returnItemButton);
-        buttons.add(checkOverduesButton);
-        buttons.add(editInformationButton);
+        JButton buttons[] = {newMembershipButton, newCollectionButton, removeMembershipButton, removeItemFromCollectionButton, newEmployeeButton, borrowItemButton, returnItemButton, checkOverduesButton, editInformationButton};
 
         int yInc = 50;
-        int setInc = 50;
+        int yButton = 50;
         for (JButton button : buttons) {
-            createButton(button, f, yInc);
-            yInc += setInc;
+            createButton(button, f, yButton);
+            yButton += yInc;
         }
 
         newMembershipButton.addActionListener(new ActionListener() {
