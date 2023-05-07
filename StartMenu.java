@@ -25,9 +25,8 @@ public class StartMenu {
         JButton borrowItemButton = new JButton("Borrow Item");
         JButton returnItemButton = new JButton("Return Item");
         JButton checkOverduesButton = new JButton("Check Overdues");
-        JButton editInformationButton = new JButton("Edit Information");
 
-        JButton buttons[] = {newMembershipButton, newCollectionButton, removeMembershipButton, removeItemFromCollectionButton, newEmployeeButton, borrowItemButton, returnItemButton, checkOverduesButton, editInformationButton};
+        JButton buttons[] = {newMembershipButton, newCollectionButton, removeMembershipButton, removeItemFromCollectionButton, newEmployeeButton, borrowItemButton, returnItemButton, checkOverduesButton};
 
         int yInc = 50;
         int yButton = 50;
@@ -39,6 +38,48 @@ public class StartMenu {
         newMembershipButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e){  
                 NewMembership.changeToNewMembership(f);
+            }   
+        });
+
+        newCollectionButton.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e){  
+                NewCollection.changeToNewCollection(f);
+            }   
+        });
+
+        newEmployeeButton.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e){  
+                NewEmployee.changeToNewEmployee(f);
+            }   
+        });
+
+        removeItemFromCollectionButton.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e){  
+                RemoveItemFromCollection.changeToRemoveItemFromCollection(f);
+            }   
+        });
+
+        borrowItemButton.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e){  
+                BorrowItem.changeToBorrowItem(f);
+            }   
+        });
+
+        returnItemButton.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e){  
+                ReturnItem.changeToReturnItem(f);
+            }   
+        });
+
+        checkOverduesButton.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e){  
+                CheckOverdues.changeToCheckOverdues(f);
+            }   
+        });
+
+        removeMembershipButton.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e){  
+                RemoveMembership.changeToRemoveMembership(f);
             }   
         });
     

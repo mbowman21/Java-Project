@@ -1,5 +1,4 @@
 import java.util.ArrayList;
-import java.util.List;
 
 public class Course {
     public String courseName;
@@ -78,18 +77,4 @@ public class Course {
         return professor;
     }
 
-    // student functions
-    public Student getStudent(int studentId){
-        Student tempStudent;
-
-        for (int i = 0; i < this.roster.size(); i++){
-           
-            if (this.roster.get(i).studentId == studentId){
-                tempStudent = this.roster.get(i);
-
-            }       
-        }
-        
-        return tempStudent;
-    }
 }

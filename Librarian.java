@@ -31,22 +31,5 @@ public class Librarian extends Employee {
         Newspaper newNewspaper = new Newspaper(section, title, author, publisher, itemID);
         return newNewspaper;
     }
-    
-    public Boolean isItemAvailable(String itemType, String section, int itemID){
-        //go through database to find the title of a certain item in a certain section
-        Boolean result = false;
-        //String status = getStatus();
-
-        if(status == "Shelved"){
-            result = true;
-        }
-
-        return result;
-    }
-
-    public Boolean isPersonMember(String position, String name, String dob){
-        //go through database in certain section to find name
-    }
-
 
 }
