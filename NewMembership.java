@@ -4,8 +4,8 @@ import java.time.*;
 
 public class NewMembership {
     // creates text fields
-    public static void createTextField (JTextField textField, JFrame frame, int y) {
-        textField.setBounds(50,y,150,30);  
+    public static void createTextField(JTextField textField, JFrame frame, int y) {
+        textField.setBounds(50, y, 150, 30);
         frame.add(textField);
     }
 
@@ -16,17 +16,17 @@ public class NewMembership {
     }
 
     // function that'll change to the new membership page
-    public static void changeToNewMembership(JFrame oldFrame){
+    public static void changeToNewMembership(JFrame oldFrame) {
         oldFrame.setVisible(false);
         newMembership();
     }
-    
+
     // new membership frontend and backend
     public static void newMembership() {
         JFrame f = new JFrame("New Membership Creation");
         f.setVisible(true);
 
-        //labels and inputs for things
+        // labels and inputs for things
         JLabel nameLabel = new JLabel("Name:");
         JLabel emailLabel = new JLabel("Email:");
         JLabel idLabel = new JLabel("Id:");
@@ -40,18 +40,19 @@ public class NewMembership {
         JTextField ssnInput = new JTextField();
 
         JLabel monthLabel = new JLabel("Birth Month:");
-        String months[] = {"1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12"};
+        String months[] = { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12" };
         JComboBox<String> monthInput = new JComboBox<>(months);
 
         JLabel dayLabel = new JLabel("Birth Day:");
-        String days[] = {"1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31"};
+        String days[] = { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17",
+                "18", "19", "20", "21", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31" };
         JComboBox<String> dayInput = new JComboBox<>(days);
 
         JLabel yearLabel = new JLabel("Birth Year: (YYYY)");
         JTextField yearInput = new JTextField();
 
         JLabel typeLabel = new JLabel("Type of Member:");
-        String types[] = {"Professor", "Student", "External"};
+        String types[] = { "Professor", "Student", "External" };
         JComboBox<String> typeInput = new JComboBox<>(types);
 
         JButton submit = new JButton("Submit");
@@ -61,22 +62,22 @@ public class NewMembership {
         menuButton.setBounds(0, 0, 75, 20);
         f.add(menuButton);
         menuButton.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e){
+            public void actionPerformed(ActionEvent e) {
                 StartMenu.changeToStartMenu(f);
-            }   
+            }
         });
 
         int yLabel = 30;
         int yInput = 50;
         int yInc = 60;
 
-        JLabel labels[] = {nameLabel, emailLabel, idLabel, addressLabel, ssnLabel};
+        JLabel labels[] = { nameLabel, emailLabel, idLabel, addressLabel, ssnLabel };
         for (JLabel label : labels) {
             createLabel(label, f, yLabel);
             yLabel += yInc;
         }
 
-        JTextField textFields[] = {nameInput, emailInput, idInput, addressInput, ssnInput};
+        JTextField textFields[] = { nameInput, emailInput, idInput, addressInput, ssnInput };
         for (JTextField textField : textFields) {
             createTextField(textField, f, yInput);
             yInput += yInc;
@@ -105,7 +106,9 @@ public class NewMembership {
         submit.setBounds(50, 590, 150, 30);
         f.add(submit);
 
-        // when the user hits submit it will try and add the member to the memberlist but if there was an error in inputting it then it will send a popup that will tell the user there is a problem
+        // when the user hits submit it will try and add the member to the memberlist
+        // but if there was an error in inputting it then it will send a popup that will
+        // tell the user there is a problem
         submit.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent event) {
                 try {
@@ -121,7 +124,7 @@ public class NewMembership {
                     int month = Integer.parseInt(monthInput.getItemAt(monthInput.getSelectedIndex()));
                     int day = Integer.parseInt(dayInput.getItemAt(dayInput.getSelectedIndex()));
                     int year = Integer.parseInt(yearInput.getText());
-                    if (year < 1900 || year > Year.now().getValue() )
+                    if (year < 1900 || year > Year.now().getValue())
                         throw new Exception();
                     LocalDate dob = LocalDate.of(year, month, day);
 
@@ -138,8 +141,10 @@ public class NewMembership {
                         Student newStudent = new Student(name, dob, email, id, address, ssn);
                         Main.studentList.add(newStudent);
                         System.out.println(Main.studentList);
+                        JOptionPane.showMessageDialog(f,
+                        "Student Successfully Added!");
                     }
-                    
+
                     else if (typeInput.getItemAt(typeInput.getSelectedIndex()) == "Professor") {
                         for (Professor professor : Main.professorList) {
                             if (professor.getMemberId() == id)
@@ -150,8 +155,10 @@ public class NewMembership {
                         Professor newProfessor = new Professor(name, dob, email, id, address, ssn);
                         Main.professorList.add(newProfessor);
                         System.out.println(Main.professorList);
+                        JOptionPane.showMessageDialog(f,
+                        "Professor Successfully Added!");
                     }
-                    
+
                     else if (typeInput.getItemAt(typeInput.getSelectedIndex()) == "External") {
                         for (External external : Main.externalList) {
                             if (external.getMemberId() == id)
@@ -162,20 +169,23 @@ public class NewMembership {
                         External newExternal = new External(name, dob, email, id, address, ssn);
                         Main.externalList.add(newExternal);
                         System.out.println(Main.externalList);
+                        JOptionPane.showMessageDialog(f,
+                        "External Successfully Added!");
+
                     }
 
                     else
                         throw new Exception();
-                } catch(Exception e) {
+                } catch (Exception e) {
                     System.out.println(e);
-                    JOptionPane.showMessageDialog(f,"Error! One of the items you inputted was formatted incorrectly and/or that id/ssn is already in use. Please try again.");
+                    JOptionPane.showMessageDialog(f,
+                            "Error! One of the items you inputted was formatted incorrectly and/or that id/ssn is already in use. Please try again.");
                 }
             }
         });
 
-
-        f.setSize(300,750);  
-        f.setLayout(null);  
+        f.setSize(300, 750);
+        f.setLayout(null);
         f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     }
 }
