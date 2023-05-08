@@ -49,11 +49,37 @@ public class RemoveItemFromCollection {
                         for (Book book : Main.bookList) {
                             if (book.itemID == itemId){
                                 Main.bookList.remove(book);
-                                print("Book successfully removed");
+                                //print("Book successfully removed");
                             } 
                         }
                     }
 
+                    if (collection == "Dvd") {
+                        for (Dvd dvd : Main.dvdList) {
+                            if (dvd.itemID == itemId){
+                                Main.dvdList.remove(dvd);
+                              //  print("Dvd successfully removed");
+                            } 
+                        }
+                    }
+
+                    if (collection == "Newspaper") {
+                        for (Newspaper newspaper : Main.newspaperList) {
+                            if (book.itemID == itemId){
+                                Main.newspaperList.remove(newspaper);
+                              //  print("Newspaper successfully removed");
+                            } 
+                        }
+                    }
+
+                    if (collection == "Journal") {
+                        for (Journal journal : Main.journalList) {
+                            if (journal.itemID == itemId){
+                                Main.journalList.remove(journal);
+                              //  print("Journal successfully removed");
+                            } 
+                        }
+                    }
                     
                 } catch(Exception e) {
                     System.out.println(e);
