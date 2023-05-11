@@ -171,7 +171,6 @@ public class NewMembership {
                         System.out.println(Main.externalList);
                         JOptionPane.showMessageDialog(f,
                         "External Successfully Added!");
-
                     }
 
                     else

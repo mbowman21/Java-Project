@@ -65,10 +65,9 @@ public class RemoveMembership {
                                 JOptionPane.showMessageDialog(f,
                                 "Student successfully deleted!");
                                 idInput.setText("");
-                                break;
+                                return;
                             }
                         }
-                        throw new Exception();
                     }
 
                     else if (type == "Professor") {
@@ -78,10 +77,9 @@ public class RemoveMembership {
                                 JOptionPane.showMessageDialog(f,
                                 "Professor successfully deleted!");
                                 idInput.setText("");
-                                break;
+                                return;
                             }
                         }
-                        throw new Exception();
                     }
 
                     else if (type == "External") {
@@ -91,7 +89,7 @@ public class RemoveMembership {
                                 JOptionPane.showMessageDialog(f,
                                 "External successfully deleted!");
                                 idInput.setText("");
-                                break;
+                                return;
                             }
                         }
                         throw new Exception();
