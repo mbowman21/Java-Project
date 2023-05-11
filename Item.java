@@ -1,4 +1,6 @@
 import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.Duration;
 
 abstract class Item {
     protected String section;
@@ -8,6 +10,7 @@ abstract class Item {
     protected String status;
     protected long itemID;
     protected LocalDate checkoutDate;
+    protected long memberId;
 
     public String getSection() {
         return this.section;
@@ -65,4 +68,33 @@ abstract class Item {
         this.checkoutDate = checkoutDate;
     }
 
+    public long getMemberId(){
+        return this.memberId;
+    }
+    public void checkout(Member m){
+        this.checkoutDate = LocalDateTime.now();
+        this.memberId = m.getMemberId();
+    } 
+
+    public boolean isOverdue(){
+        if(this.checkoutDate==null){
+            return false;
+        }
+        LocalDateTime now = LocalDateTime.now();
+        Duration duration = Duration.between(this.checkoutDate,now);
+        if(duration.toDays>14){
+            return true;
+        }
+        else{
+            return false;
+        }
+    }
+
+
+    public Integer getDaysOverdue(){
+        LocalDateTime now = LocalDateTime.now();
+        Duration duration = Duration.between(this.checkoutDate,now);
+        Integer DaysOverdue = duration.toDays();
+        return DaysOverdue;
+    }
 }
