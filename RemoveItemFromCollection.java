@@ -33,13 +33,16 @@ public class RemoveItemFromCollection {
 
         collectionLabel.setBounds(50, 30, 150, 20);
         f.add(collectionLabel);
-        collectionInput.setBounds(50, 50, 200, 30);
+        collectionInput.setBounds(50, 50, 150, 30);
         f.add(collectionInput);
 
-        itemIdLabel.setBounds(50, 30, 250, 20);
+        itemIdLabel.setBounds(50, 80, 150, 20);
         f.add(itemIdLabel);
-        itemIdInput.setBounds(50, 50, 300, 30);
+        itemIdInput.setBounds(50, 100, 150, 30);
         f.add(itemIdInput);
+
+        submitButton.setBounds(50, 140, 150, 30);
+        f.add(submitButton);
 
         submitButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent event) {
