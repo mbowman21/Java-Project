@@ -6,7 +6,7 @@ public class OverdueItemsTable extends JPanel {
     private DefaultTableModel tableModel;
     private JTable table;
 
-    public void OverdueBooksTable() {
+    public OverdueItemsTable() {
         this.tableModel = new DefaultTableModel(new Object[]{"Title", "Author", "Checked Out Date", "Days Overdue"}, 0);
         this.table = new JTable(tableModel);
     }
@@ -14,7 +14,6 @@ public class OverdueItemsTable extends JPanel {
     public void setOverdueItems(ArrayList<Item> list) {
         tableModel.setRowCount(0);
         for (Item i : list) {
-            Integer daysOverdue = i.getDaysOverdue();
             Object[] rowData = {i.getTitle(), i.getAuthor(), i.getCheckoutDate(), i.getDaysOverdue()};
             tableModel.addRow(rowData);
         }
