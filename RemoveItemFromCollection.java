@@ -49,15 +49,23 @@ public class RemoveItemFromCollection {
                 try {
                     String collection   = collectionInput.getItemAt(collectionInput.getSelectedIndex());
                     long itemId         = Long.parseLong(itemIdInput.getText());
+                    Boolean foundMatch  = false;
 
-                    if (itemId < 0 || itemId > 10000000000000L)
+                    System.out.println(itemId);
+
+                    if (itemId < 0 || itemId > 10000000000000L){
+                            System.out.print("Throwing Exception");
                             throw new Exception();
+                    }
 
                     if (collection == "Book") {
                         for (Book book : Main.bookList) {
                             if (book.itemID == itemId){
                                 Main.bookList.remove(book);
-                                //print("Book successfully removed");
+                                JOptionPane.showMessageDialog(f,"Succesfully removed Book!");
+                                System.out.println("Book successfully removed");
+                                foundMatch = true;
+                                return;
                             } 
                         }
                     }
@@ -66,7 +74,10 @@ public class RemoveItemFromCollection {
                         for (Dvd dvd : Main.dvdList) {
                             if (dvd.itemID == itemId){
                                 Main.dvdList.remove(dvd);
-                              //  print("Dvd successfully removed");
+                                JOptionPane.showMessageDialog(f,"Succesfully removed Dvd!");
+                                System.out.println("Dvd successfully removed");
+                                foundMatch = true;
+                                return;
                             } 
                         }
                     }
@@ -75,7 +86,10 @@ public class RemoveItemFromCollection {
                         for (Newspaper newspaper : Main.newspaperList) {
                             if (newspaper.itemID == itemId){
                                 Main.newspaperList.remove(newspaper);
-                              //  print("Newspaper successfully removed");
+                                JOptionPane.showMessageDialog(f,"Succesfully removed newspaper!");
+                                System.out.println("Newspaper successfully removed");
+                                foundMatch = true;
+                                return;
                             } 
                         }
                     }
@@ -84,10 +98,19 @@ public class RemoveItemFromCollection {
                         for (Journal journal : Main.journalList) {
                             if (journal.itemID == itemId){
                                 Main.journalList.remove(journal);
-                              //  print("Journal successfully removed");
+                                JOptionPane.showMessageDialog(f,"Succesfully removed journal!");
+                                System.out.println("Journal successfully removed");
+                                foundMatch = true;
+                                return;
                             } 
                         }
                     }
+                    
+                    if (foundMatch == false){
+                        JOptionPane.showMessageDialog(f,"Could not locate item!");
+                    }
+
+                    
                     
                 } catch(Exception e) {
                     System.out.println(e);
