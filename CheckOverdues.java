@@ -2,6 +2,7 @@ import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 
 import java.awt.event.*;
+import java.util.ArrayList;
 
 public class CheckOverdues {
     public static void changeToCheckOverdues(JFrame oldFrame) {
@@ -13,25 +14,31 @@ public class CheckOverdues {
         JFrame f = new JFrame("Check Overdues");
         f.setVisible(true);
 
-        JLabel memberIDLabel = new JLabel("Member ID");
-        JTextField memberidInput = new JTextField();
-
         JButton checkButton = new JButton("Check");
         checkButton.setBounds(50, 50, 60, 20);
         f.add(checkButton);
+
+        JLabel memberIDLabel = new JLabel("Member ID");
+        JTextField memberidInput = new JTextField();
+        memberIDLabel.setBounds(50, 80, 60, 20);
+        f.add(memberIDLabel);
+
+        memberidInput.setBounds(50, 100, 60, 30);
+        f.add(memberidInput);
+
         checkButton.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e){
+            public void actionPerformed(ActionEvent event){
                 try{
                     long id = Integer.parseInt(memberIDLabel.getText());
                     if (id < 0)
                         throw new Exception();
                     JPanel panel = new JPanel();
-                    OverdueBooksTable table = new OverdueBooksTable();
+                    OverdueItemsTable table = new OverdueItemsTable();
                     JScrollPane scrollPane = new JScrollPane(table.getTable());
                     panel.add(table);
                     f.setContentPane(panel);
-                    ArrayList<Item> item = new ArrayList<>();
-                    table.setOverdueBooks(item);
+                    ArrayList<Item> item = new ArrayList<Item>();
+                    table.setOverdueItems(item);
                 }
                 catch (Exception e) {
                     System.out.println(e);

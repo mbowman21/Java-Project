@@ -72,7 +72,7 @@ abstract class Item {
         return this.memberId;
     }
     public void checkout(Member m){
-        this.checkoutDate = LocalDateTime.now();
+        this.checkoutDate = LocalDate.now();
         this.memberId = m.getMemberId();
     } 
 
@@ -81,8 +81,8 @@ abstract class Item {
             return false;
         }
         LocalDateTime now = LocalDateTime.now();
-        Duration duration = Duration.between(this.checkoutDate,now);
-        if(duration.toDays>14){
+        Duration duration = Duration.between(this.checkoutDate, now);
+        if(duration.toDays() > 14){
             return true;
         }
         else{
@@ -90,11 +90,10 @@ abstract class Item {
         }
     }
 
-
-    public Integer getDaysOverdue(){
+    public Long getDaysOverdue(){
         LocalDateTime now = LocalDateTime.now();
         Duration duration = Duration.between(this.checkoutDate,now);
-        Integer DaysOverdue = duration.toDays();
+        Long DaysOverdue = duration.toDays();
         return DaysOverdue;
     }
 }

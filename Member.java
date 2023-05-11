@@ -22,14 +22,14 @@ abstract class Member extends Person{
     }
 
     public void checkoutItem(Item i){
-        this.CheckoutHistory.add(i.itemID);
+        this.CheckoutHistory.add(i);
     }
 
     public ArrayList<Item> getOverdueList(){
         ArrayList<Item> overdues = new ArrayList<Item>();
-        for(i in length(this.CheckoutHistory)){
-            if(this.CheckoutHistory[i].isOverdue()==true){
-                overdues.add(this.CheckoutHistory[i]);
+        for (Item item : this.CheckoutHistory) {
+            if(item.isOverdue()==true){
+                overdues.add(item);
             }
         }
         return overdues;
