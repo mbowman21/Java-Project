@@ -33,8 +33,13 @@ public class RemoveItemFromCollection {
 
         collectionLabel.setBounds(50, 30, 150, 20);
         f.add(collectionLabel);
-        collectionInput.setBounds(50, 50, 150, 30);
+        collectionInput.setBounds(50, 50, 200, 30);
         f.add(collectionInput);
+
+        itemIdLabel.setBounds(50, 30, 250, 20);
+        f.add(itemIdLabel);
+        itemIdInput.setBounds(50, 50, 300, 30);
+        f.add(itemIdInput);
 
         submitButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent event) {
@@ -65,7 +70,7 @@ public class RemoveItemFromCollection {
 
                     if (collection == "Newspaper") {
                         for (Newspaper newspaper : Main.newspaperList) {
-                            if (book.itemID == itemId){
+                            if (newspaper.itemID == itemId){
                                 Main.newspaperList.remove(newspaper);
                               //  print("Newspaper successfully removed");
                             } 
