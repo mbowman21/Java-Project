@@ -77,7 +77,9 @@ public class ReturnItem {
                                 {
                                     book.setStatus("Shelved");
                                     book.setMemberId(0);
-                                    System.out.println(Main.bookList);
+                                }
+                                else{
+                                    throw new Exception();
                                 }
                         }
                     }
@@ -87,7 +89,9 @@ public class ReturnItem {
                                 {
                                     dvd.setStatus("Shelved");
                                     dvd.setMemberId(0);
-                                    System.out.println(Main.dvdList);
+                                }
+                                else{
+                                    throw new Exception();
                                 }
                         }
                     }
@@ -97,7 +101,9 @@ public class ReturnItem {
                                 {
                                     journal.setStatus("Shelved");
                                     journal.setMemberId(0);
-                                    System.out.println(Main.journalList);
+                                }
+                            else{
+                                    throw new Exception();
                                 }
                         }
                     }
@@ -107,19 +113,18 @@ public class ReturnItem {
                                 {
                                     newspaper.setStatus("Shelved");
                                     newspaper.setMemberId(0);
-                                    System.out.println(Main.newspaperList);
                                 }
+                            else{
+                                throw new Exception();
+                            }
                         }
                     }
-                    else
-                        throw new Exception();
                 } catch(Exception e) {
                     System.out.println(e);
                     JOptionPane.showMessageDialog(f,"Error! One of the items you inputted was formatted incorrectly and/or we do not own that item at our library. Please try again.");
                 }
             }
         });
-
 
         f.setSize(300,750);  
         f.setLayout(null);  
