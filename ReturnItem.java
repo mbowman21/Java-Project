@@ -77,6 +77,7 @@ public class ReturnItem {
                                 {
                                     book.setStatus("Shelved");
                                     book.setMemberId(0);
+                                    System.out.println(Main.bookList);
                                 }
                         }
                     }
@@ -86,6 +87,7 @@ public class ReturnItem {
                                 {
                                     dvd.setStatus("Shelved");
                                     dvd.setMemberId(0);
+                                    System.out.println(Main.dvdList);
                                 }
                         }
                     }
@@ -95,6 +97,7 @@ public class ReturnItem {
                                 {
                                     journal.setStatus("Shelved");
                                     journal.setMemberId(0);
+                                    System.out.println(Main.journalList);
                                 }
                         }
                     }
@@ -104,6 +107,7 @@ public class ReturnItem {
                                 {
                                     newspaper.setStatus("Shelved");
                                     newspaper.setMemberId(0);
+                                    System.out.println(Main.newspaperList);
                                 }
                         }
                     }
