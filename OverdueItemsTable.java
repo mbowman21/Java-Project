@@ -4,11 +4,12 @@ import java.util.ArrayList;
 
 public class OverdueItemsTable extends JPanel {
     private DefaultTableModel tableModel;
-    private JTable table;
+    JTable table = new JTable(tableModel);
 
     public OverdueItemsTable() {
-        this.tableModel = new DefaultTableModel(new Object[]{"Title", "Author", "Checked Out Date", "Days Overdue"}, 0);
-        this.table = new JTable(tableModel);
+        tableModel = new DefaultTableModel(new Object[]{"Title", "Author", "Checked Out Date", "Days Overdue"}, 0);
+        JScrollPane scrollPane = new JScrollPane(table);
+        this.add(scrollPane);
     }
 
     public void setOverdueItems(ArrayList<Item> list) {

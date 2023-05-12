@@ -34,4 +34,8 @@ abstract class Member extends Person{
         }
         return overdues;
     }
+
+    /*public Member findMember(long memberId){
+        for(Member m : members)
+    }*/
 }

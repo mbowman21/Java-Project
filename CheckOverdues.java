@@ -1,5 +1,4 @@
 import javax.swing.*;
-import javax.swing.table.DefaultTableModel;
 
 import java.awt.event.*;
 import java.util.ArrayList;
@@ -15,15 +14,15 @@ public class CheckOverdues {
         f.setVisible(true);
 
         JButton checkButton = new JButton("Check");
-        checkButton.setBounds(50, 50, 60, 20);
+        checkButton.setBounds(50, 80, 100, 20);
         f.add(checkButton);
 
         JLabel memberIDLabel = new JLabel("Member ID");
         JTextField memberidInput = new JTextField();
-        memberIDLabel.setBounds(50, 80, 60, 20);
+        memberIDLabel.setBounds(50, 50, 100, 20);
         f.add(memberIDLabel);
 
-        memberidInput.setBounds(50, 100, 60, 30);
+        memberidInput.setBounds(50, 100, 200, 30);
         f.add(memberidInput);
 
         checkButton.addActionListener(new ActionListener() {
@@ -34,7 +33,6 @@ public class CheckOverdues {
                         throw new Exception();
                     JPanel panel = new JPanel();
                     OverdueItemsTable table = new OverdueItemsTable();
-                    JScrollPane scrollPane = new JScrollPane(table.getTable());
                     panel.add(table);
                     f.setContentPane(panel);
                     ArrayList<Item> item = new ArrayList<Item>();
@@ -43,7 +41,7 @@ public class CheckOverdues {
                 catch (Exception e) {
                     System.out.println(e);
                     JOptionPane.showMessageDialog(f,
-                            "Error! One of the items you inputted was formatted incorrectly. Please try again.");
+                            "Error! Looks like you did not enter a valid member ID. Please try again");
                 }
             }
         });
