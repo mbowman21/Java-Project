@@ -1,5 +1,6 @@
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.time.temporal.ChronoUnit;
 import java.time.Duration;
 
 abstract class Item {
@@ -80,7 +81,7 @@ abstract class Item {
         if(this.checkoutDate==null){
             return false;
         }
-        LocalDateTime now = LocalDateTime.now();
+        LocalDateTime now = LocalDateTime.now().plus(15,ChronoUnit.DAYS);//".plusDays(15) exists only to test the item being overdue"
         Duration duration = Duration.between(this.checkoutDate, now);
         if(duration.toDays() > 14){
             return true;

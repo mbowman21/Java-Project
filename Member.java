@@ -22,6 +22,9 @@ abstract class Member extends Person{
     }
 
     public void checkoutItem(Item i){
+        if(this.CheckoutHistory == null){
+            this.CheckoutHistory = new ArrayList<>();
+        }
         this.CheckoutHistory.add(i);
     }
 

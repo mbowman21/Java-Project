@@ -15,6 +15,7 @@ public class CheckOverdues {
 
         JButton checkButton = new JButton("Check");
         checkButton.setBounds(50, 80, 100, 20);
+        checkButton.setFocusable(false);
         f.add(checkButton);
 
         JLabel memberIDLabel = new JLabel("Member ID");
@@ -28,21 +29,42 @@ public class CheckOverdues {
         checkButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent event){
                 try{
-                    long id = Integer.parseInt(memberIDLabel.getText());
-                    if (id < 0)
+                    
+                    long id = Integer.parseInt(memberidInput.getText());
+                    if (id < 0 || id > 10000000000000L){
                         throw new Exception();
+                    }
                     JPanel panel = new JPanel();
                     OverdueItemsTable table = new OverdueItemsTable();
                     panel.add(table);
                     f.setContentPane(panel);
-                    ArrayList<Item> item = new ArrayList<Item>();
-                    table.setOverdueItems(item);
+                    ArrayList<Item> items = new ArrayList<Item>();
+                    ArrayList<Member> allMembers = new ArrayList<>();
+                    allMembers.addAll(Main.professorList);
+                    allMembers.addAll(Main.studentList);
+                    allMembers.addAll(Main.externalList);
+                    if(allMembers.isEmpty()){
+                        throw new Exception();
+                    }
+                    for (Member member : allMembers) {
+                        if (member.getMemberId() == id) {
+                            for(Item i : member.CheckoutHistory){
+                                items.add(i);
+                            }
+                            table.setOverdueItems(items);
+                            break;
+                        }
+                        else{
+                            throw new Exception();
+                        }
+                    }
                 }
                 catch (Exception e) {
                     System.out.println(e);
                     JOptionPane.showMessageDialog(f,
                             "Error! Looks like you did not enter a valid member ID. Please try again");
                 }
+
             }
         });
 
