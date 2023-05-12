@@ -69,6 +69,10 @@ abstract class Item {
         this.checkoutDate = checkoutDate;
     }
 
+    public void setMemberId(long memberID){
+        this.memberId = memberID;
+    }
+
     public long getMemberId(){
         return this.memberId;
     }

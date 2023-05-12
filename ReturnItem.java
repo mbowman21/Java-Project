@@ -76,6 +76,7 @@ public class ReturnItem {
                             if (book.getItemID() == itemID)
                                 {
                                     book.setStatus("Shelved");
+                                    book.setMemberId(0);
                                 }
                         }
                     }
@@ -84,6 +85,7 @@ public class ReturnItem {
                             if (dvd.getItemID() == itemID)
                                 {
                                     dvd.setStatus("Shelved");
+                                    dvd.setMemberId(0);
                                 }
                         }
                     }
@@ -92,6 +94,7 @@ public class ReturnItem {
                             if (journal.getItemID() == itemID)
                                 {
                                     journal.setStatus("Shelved");
+                                    journal.setMemberId(0);
                                 }
                         }
                     }
@@ -100,6 +103,7 @@ public class ReturnItem {
                             if (newspaper.getItemID() == itemID)
                                 {
                                     newspaper.setStatus("Shelved");
+                                    newspaper.setMemberId(0);
                                 }
                         }
                     }
